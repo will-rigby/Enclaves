@@ -16,6 +16,15 @@ Enclaves uses a messaging protocol that uses a unique AES-256 encryption and aut
 
 The routing server contains a table containing for each user an identifier number, encryption key and authentication key, this is the only information stored by the server. Messages sent between the user and the server contain only sender identifier number, recipient identifier number, and the encrypted and authenticated user to user message which the server can't decrypt. The server simply receives the message, and forwards it on to the recipient.
 
+#### 2.1.1 User 1 Actions
+![User 1 Actions](https://github.com/will-rigby/Enclaves/blob/main/images/User%201%20Actions.PNG?raw=true)
+
+#### 2.1.2 Server Actions
+![Server Actions](https://raw.githubusercontent.com/will-rigby/Enclaves/main/images/Server%20Actions.PNG)
+
+#### 2.1.3 User 2 Actions
+![User 2 Actions](https://github.com/will-rigby/Enclaves/blob/main/images/User%202%20Actions.PNG?raw=true)
+
 ### 2.2 Man-In-The-Middle Defense
 While Diffie-Hellman (DH) key exchange protects against eavesdroppers, particularly if the keys used are large enough, Man-in-the-middle attacks are difficult to prevent against. If a well-prepared attacker is intercepting all communication to the server and have sufficient knowledge of the messaging scheme, they could hijack any key exchanges when a new user joins the server. The best protection against man-in-the-middle attack is by using trusted channels to share keys. In the design of Enclaves servers, users receive their server-user key-pair direct from the servers terminal or GUI interface, or they can receive it directly from another "trusted" user, with the new user immediately connecting to the server using that key-pair and generating a new one.
 
